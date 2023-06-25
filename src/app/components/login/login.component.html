@@ -3,16 +3,16 @@
     <form>
         <div class="form-group">
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required #myEmail [(ngModel)]="email">
         </div>
         <div class="form-group">
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required [(ngModel)]="password">
         </div>
         <div class="form-group">
             <a [routerLink]="['/forgot']" class="forgot-password">Forgot Password?</a>
         </div>
-        <button type="submit" class="btn">Login</button>
+        <button type="submit" class="btn" (click)="onLogin()">Login</button>
     </form>
     <div class="register">
         <p>Not a user? <a [routerLink]="['/registration']">Register</a></p>

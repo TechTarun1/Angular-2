@@ -10,6 +10,8 @@ import { AdminModule } from './admin/admin.module';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { NofoundComponent } from './components/nofound/nofound.component';
 import { CandeactivateComponent } from './components/candeactivate/candeactivate.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { CandeactivateComponent } from './components/candeactivate/candeactivate
     BrowserModule,
     AppRoutingModule,
     UserModule,
-    AdminModule
+    AdminModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

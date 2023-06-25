@@ -8,13 +8,17 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { UserModule } from './user/user.module';
 import { AdminModule } from './admin/admin.module';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { NofoundComponent } from './components/nofound/nofound.component';
+import { CandeactivateComponent } from './components/candeactivate/candeactivate.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegistrationComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    NofoundComponent,
+    CandeactivateComponent
   ],
   imports: [
     BrowserModule,

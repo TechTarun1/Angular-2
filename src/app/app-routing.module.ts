@@ -8,7 +8,7 @@ import { NofoundComponent } from './components/nofound/nofound.component';
 import { CandeactivateComponent } from './components/candeactivate/candeactivate.component';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
+  { path: '', redirectTo: '/login',pathMatch:'full' },
   { path: 'login', component: LoginComponent },
   { path: 'registration', component: RegistrationComponent, canActivate: [authGuard] },
   { path: 'forgot', component: ForgotPasswordComponent, canMatch: [authGuard] },

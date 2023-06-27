@@ -6,12 +6,16 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { authGuard } from './gaurds/auth.guard';
 import { NofoundComponent } from './components/nofound/nofound.component';
 import { CandeactivateComponent } from './components/candeactivate/candeactivate.component';
+import { ReactiveFormsComponent } from './components/reactive-forms/reactive-forms.component';
+import { TempleteFormsComponent } from './components/templete-forms/templete-forms.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login',pathMatch:'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'registration', component: RegistrationComponent, canActivate: [authGuard] },
   { path: 'forgot', component: ForgotPasswordComponent, canMatch: [authGuard] },
+  { path: 'reactive-form', component: ReactiveFormsComponent },
+  { path: 'template-form', component: TempleteFormsComponent },
   { path: 'notfound', component: NofoundComponent },
   { path: 'deactivatex', component: CandeactivateComponent, canDeactivate: [authGuard] },
   { path: 'user', loadChildren: () => import('./user/user-routing.module').then((m) => m.UserRoutingModule) },

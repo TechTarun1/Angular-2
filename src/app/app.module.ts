@@ -10,8 +10,10 @@ import { AdminModule } from './admin/admin.module';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { NofoundComponent } from './components/nofound/nofound.component';
 import { CandeactivateComponent } from './components/candeactivate/candeactivate.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsComponent } from './components/reactive-forms/reactive-forms.component';
+import { TempleteFormsComponent } from './components/templete-forms/templete-forms.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { HttpClientModule } from '@angular/common/http';
     RegistrationComponent,
     ForgotPasswordComponent,
     NofoundComponent,
-    CandeactivateComponent
+    CandeactivateComponent,
+    ReactiveFormsComponent,
+    TempleteFormsComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +32,8 @@ import { HttpClientModule } from '@angular/common/http';
     UserModule,
     AdminModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

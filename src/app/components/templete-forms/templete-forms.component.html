@@ -1,0 +1,32 @@
+<div style="background-color:aquamarine;display: flex;justify-content: center;padding: 10px;">
+    <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+        <h1 style="color: red;">Template Driven forms</h1>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" class="form-control" ngModel name="name" required #name="ngModel"
+                placeholder="Enter name">
+            <!--To have a default value[ngModel]="'Tarun'"-->
+            <small *ngIf="!name.valid && name.touched">name is required</small>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" email id="emailAddress" class="form-control" ngModel name="emailAddress" required
+                #emailAddress="ngModel" placeholder="Enter email">
+            <small *ngIf="emailAddress.errors&&emailAddress.errors['required'] &&emailAddress.touched">email is
+                required</small>
+            <small *ngIf="emailAddress.errors&& emailAddress.errors['email'] && emailAddress.touched">email should be
+                valid</small>
+        </div>
+
+        <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" class="form-control" ngModel name="message" required #message="ngModel"
+                placeholder="Enter message"></textarea>
+            <small *ngIf="!message.valid&&message.touched">message required</small>
+        </div>
+
+        <button type="submit" [disabled]="!myForm.valid">Submit</button>
+        <p *ngFor="let data of myForm.value|keyvalue">{{data.key+":"+data.value}}</p>
+    </form>
+</div>

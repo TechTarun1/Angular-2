@@ -1,0 +1,79 @@
+<div style="background-color:aquamarine;display: flex;justify-content: center;padding: 10px;">
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+        <h1 style="color: red;">Reactive/Model Driven forms</h1>
+        <div class="form-group">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" class="form-control" formControlName="firstName"
+                placeholder="Enter first name">
+            <div *ngIf="profileForm.get('firstName').invalid&&profileForm.get('firstName').touched">
+                <small *ngIf="profileForm.get('firstName').errors['required']">First name is required.</small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" class="form-control" formControlName="lastName" placeholder="Enter last name">
+            <div *ngIf="profileForm.get('lastName').invalid&&profileForm.get('lastName').touched">
+                <small *ngIf="profileForm.get('lastName').errors['required']">Last name is required.</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input id="email" class="form-control" formControlName="email" required placeholder="Enter email">
+            <div *ngIf="profileForm.get('email').invalid&&profileForm.get('email').touched">
+                <small *ngIf="profileForm.get('email').errors['required']">Email is required.</small>
+            </div>
+        </div>
+        <h3>Address</h3>
+        <div formGroupName="address">
+            <div class="form-group">
+                <label for="city">City</label>
+                <input id="city" class="form-control" formControlName="city" required placeholder="Enter city">
+                <div *ngIf="profileForm.get('address.city')?.invalid&&profileForm.get('address.city').touched">
+                    <small *ngIf="profileForm.get('address.city').errors['required']">City is required.</small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="state">State</label>
+                <input id="state" class="form-control" formControlName="state" required placeholder="Enter state">
+                <div *ngIf="profileForm.get('address.state')?.invalid&&profileForm.get('address.state').touched">
+                    <small *ngIf="profileForm.get('address.state').errors['required']">City is required.</small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="street">Street</label>
+                <input id="street" class="form-control" formControlName="street" required placeholder="Enter street">
+                <div *ngIf="profileForm.get('address.street')?.invalid&&profileForm.get('address.street').touched">
+                    <small *ngIf="profileForm.get('address.street').errors['required']">City is required.</small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="zip">Pincode</label>
+                <input id="zip" class="form-control" formControlName="zip" required placeholder="Enter pincode">
+                <div *ngIf="profileForm.get('address.zip')?.invalid&&profileForm.get('address.zip').touched">
+                    <small *ngIf="profileForm.get('address.zip').errors['required']">City is required.</small>
+                </div>
+            </div>
+        </div>
+        <div style="display: flex;">
+           <p style="padding: 0;margin: 0;">Gender</p> 
+            <input id="male" type='radio' formControlName="gender" required value="Male">
+            <label for="male">Male</label>
+            <input id="female" type='radio' formControlName="gender" required value="Female">
+            <label for="female">Female</label>
+            <input id="others" type='radio' formControlName="gender" required value="Others">
+            <label for="others">Others</label>
+        </div>
+        <div *ngIf="profileForm.get('gender').invalid && (profileForm.get('gender').dirty || profileForm.get('gender').touched)" class="error-message">
+            <div *ngIf="profileForm.get('gender').errors['required']">Gender is required.</div>
+          </div>
+        <div style="display: flex;flex-direction: row; margin-bottom: 20px;">
+            <input id="terms" type='checkbox' formControlName="terms" required>&nbsp;
+            <label for="terms">Accept Terms & Conditions</label><br>
+            <div *ngIf="profileForm.get('terms').invalid&&profileForm.get('terms').touched">
+                <small *ngIf="profileForm.get('terms').errors['required']">Please Accept Tems & Conditions</small>
+            </div>
+        </div>
+        <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+    </form>
+</div>

@@ -1,12 +1,14 @@
-<div style="background-color:aquamarine;display: flex;justify-content: center;padding: 10px;">
+<div style="background-color:aqua;display: flex;justify-content: center;padding: 10px;">
     <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-        <h1 style="color: red;">Reactive/Model Driven forms</h1>
+        <h1 style="color: orange;">Reactive/Model Driven forms</h1>
         <div class="form-group">
             <label for="fname">First Name</label>
             <input type="text" id="fname" class="form-control" formControlName="firstName"
                 placeholder="Enter first name">
             <div *ngIf="profileForm.get('firstName').invalid&&profileForm.get('firstName').touched">
                 <small *ngIf="profileForm.get('firstName').errors['required']">First name is required.</small>
+                <small *ngIf="profileForm.get('firstName').hasError('minlength')">First Name should be atleast 3
+                    characters</small>
             </div>
         </div>
 
@@ -22,6 +24,7 @@
             <input id="email" class="form-control" formControlName="email" required placeholder="Enter email">
             <div *ngIf="profileForm.get('email').invalid&&profileForm.get('email').touched">
                 <small *ngIf="profileForm.get('email').errors['required']">Email is required.</small>
+                <small *ngIf="profileForm.get('email').errors['email']">Email should be valid.</small>
             </div>
         </div>
         <h3>Address</h3>
@@ -56,7 +59,7 @@
             </div>
         </div>
         <div style="display: flex;">
-           <p style="padding: 0;margin: 0;">Gender</p> 
+            <p style="padding: 0;margin: 0;">Gender</p>
             <input id="male" type='radio' formControlName="gender" required value="Male">
             <label for="male">Male</label>
             <input id="female" type='radio' formControlName="gender" required value="Female">
@@ -64,9 +67,10 @@
             <input id="others" type='radio' formControlName="gender" required value="Others">
             <label for="others">Others</label>
         </div>
-        <div *ngIf="profileForm.get('gender').invalid && (profileForm.get('gender').dirty || profileForm.get('gender').touched)" class="error-message">
-            <div *ngIf="profileForm.get('gender').errors['required']">Gender is required.</div>
-          </div>
+        <div *ngIf="profileForm.get('gender').invalid && (profileForm.get('gender').dirty || profileForm.get('gender').touched)"
+            class="error-message">
+            <small *ngIf="profileForm.get('gender').errors['required']">Gender is required.</small>
+        </div>
         <div style="display: flex;flex-direction: row; margin-bottom: 20px;">
             <input id="terms" type='checkbox' formControlName="terms" required>&nbsp;
             <label for="terms">Accept Terms & Conditions</label><br>
@@ -74,6 +78,6 @@
                 <small *ngIf="profileForm.get('terms').errors['required']">Please Accept Tems & Conditions</small>
             </div>
         </div>
-        <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+        <button type="submit">Submit</button>
     </form>
 </div>

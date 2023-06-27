@@ -12,9 +12,9 @@ export class ReactiveFormsComponent {
 
   constructor(private fb: FormBuilder) {
     this.profileForm = new FormGroup({
-      firstName: new FormControl('', [Validators.required]),
+      firstName: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(10)]),
       lastName: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required, Validators.email]),
       address: new FormGroup({
         street: new FormControl('', [Validators.required]),
         city: new FormControl('', [Validators.required]),
@@ -27,7 +27,20 @@ export class ReactiveFormsComponent {
   }
 
   onSubmit = () => {
-    console.log('coming here', this.profileForm.value)
-    this.profileForm.reset()
+    if (this.profileForm.valid) {
+      console.log('coming here', this.profileForm.value)
+      this.profileForm.reset();
+    } else {
+      this.markFormGroupTouched(this.profileForm);
+    }
+  }
+
+  markFormGroupTouched(formGroup: FormGroup) {
+    Object.values(formGroup.controls).forEach(control => {
+      control.markAsTouched();
+      if (control instanceof FormGroup) {
+        this.markFormGroupTouched(control);
+      }
+    });
   }
 }

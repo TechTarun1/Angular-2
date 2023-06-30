@@ -14,6 +14,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsComponent } from './components/reactive-forms/reactive-forms.component';
 import { TempleteFormsComponent } from './components/templete-forms/templete-forms.component';
+import { CommonModule } from '@angular/common';
+import { TODOComponent } from './components/todo/todo.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import { TempleteFormsComponent } from './components/templete-forms/templete-for
     CandeactivateComponent,
     ReactiveFormsComponent,
     TempleteFormsComponent,
+    TODOComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,8 @@ import { TempleteFormsComponent } from './components/templete-forms/templete-for
     AdminModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

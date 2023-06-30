@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
     this.data.email = this.email;
     this.data.password = this.password
     this.api.handleLogin(this.data).subscribe((data: any) => {
-      if (data.status == 'Ok') {
+      if (data?.status == 'Ok') {
         this.router.navigate(['/user'])
       }
     })

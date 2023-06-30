@@ -24,7 +24,7 @@ import { TempleteFormsComponent } from './components/templete-forms/templete-for
     NofoundComponent,
     CandeactivateComponent,
     ReactiveFormsComponent,
-    TempleteFormsComponent
+    TempleteFormsComponent,
   ],
   imports: [
     BrowserModule,

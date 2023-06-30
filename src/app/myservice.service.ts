@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,10 +14,14 @@ export class MyserviceService {
     'Access-Control-Allow-Origin': '*'
   })
 
-  url: string = "http://localhost:4000/user/login";
+  url: string = "http://localhost:4000/user";
 
   //get Api call
-  handleLogin = (data:any) => {
-    return this.http.post<any>(this.url, data);
+  handleLogin(data: any): Observable<any> {
+    return this.http.post<any>(`${this.url}/login`, data);
+  }
+
+  handleRegister(data: any): Observable<any> {
+    return this.http.post<any>(`${this.url}/register`, data);
   }
 }

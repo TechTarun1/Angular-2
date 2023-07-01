@@ -1,0 +1,14 @@
+<h1 style="display: flex;align-items: center;justify-content: center;"><u>{{queryParamName.subregion}} region data</u></h1>
+<div class="d-flex flex-wrap" style="margin-left: 80px;">
+    <div class="card" *ngFor="let data of specificRegionData">
+        <div>
+            <img [src]="data.flags?.png" [alt]="data?.flags?.alt" style="width:100%">
+            <div class="container">
+                <h2>{{data?.name?.common}}</h2>
+                <p class="title">{{data?.capital[0]}}({{data.population}})</p>
+                <p>{{data.region}}</p>
+                <p><a class="button" [href]="data.maps.googleMaps" target="_blank">View map</a></p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -16,6 +16,8 @@ import { ReactiveFormsComponent } from './components/reactive-forms/reactive-for
 import { TempleteFormsComponent } from './components/templete-forms/templete-forms.component';
 import { CommonModule } from '@angular/common';
 import { TODOComponent } from './components/todo/todo.component';
+import { CountriesExComponent } from './components/countries-ex/countries-ex.component';
+import { CountryDataComponent } from './services/country-data/country-data.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { TODOComponent } from './components/todo/todo.component';
     CandeactivateComponent,
     ReactiveFormsComponent,
     TempleteFormsComponent,
-    TODOComponent
+    TODOComponent,
+    CountriesExComponent,
+    CountryDataComponent
   ],
   imports: [
     BrowserModule,

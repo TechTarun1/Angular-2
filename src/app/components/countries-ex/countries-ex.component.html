@@ -1,0 +1,37 @@
+<h1 style="display: flex;align-items: center;justify-content: center;">Get the countries you want....</h1>
+<div style="display: flex; align-items: center; justify-content: center;">
+    <div class="search-container" style="margin-right: 50px;">
+        <input type="text" placeholder="Search..." (input)="onInputChange($event)" [(ngModel)]="searchQuery">
+        <button type="submit" (click)="onSearch()">
+            <i class="bi bi-search"></i>
+            Search
+        </button>
+    </div>
+    <div style="margin-right: 300px;margin-top: 20px;">
+        <button (click)="sortAsc()" class="sort">Sort Population(Asc)</button>
+        <button (click)="sortDesc()" class="sort">Sort Population(Desc)</button>
+        <button (click)="getCountries()" class="sort">Clear Sorting</button>
+    </div>
+</div>
+
+<div class="d-flex flex-wrap" style="margin-left: 80px;" *ngIf="countriesData?.length>0">
+    <div class="card" *ngFor="let data of countriesData">
+        <div (click)="gotoCountryData(data)">
+            <img [src]="data?.flags?.png" [alt]="data?.flags?.alt" style="width:100%">
+            <div class="container">
+                <h2>{{data?.name?.common}}</h2>
+                <p class="title">{{data?.capital[0]}}({{data.population}})</p>
+                <p>{{data.region}}</p>
+                <p><a class="button" [href]="data.maps.googleMaps" target="_blank">View map</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="countriesData?.length===0" style="display: flex;align-items: center;justify-content: center;height: 70vh;">
+    <div class="container">
+        <!-- <h1>No Data</h1> -->
+        <img class="no-data-image" src="https://i.gifer.com/origin/22/229d93768bce2f815ee0be08fa49a29b.gif"
+            alt="No Data Image">
+        <h3 class="no-data-message">Sorry, no data available.</h3>
+    </div>
+</div>

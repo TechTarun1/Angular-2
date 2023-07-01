@@ -9,6 +9,8 @@ import { CandeactivateComponent } from './components/candeactivate/candeactivate
 import { ReactiveFormsComponent } from './components/reactive-forms/reactive-forms.component';
 import { TempleteFormsComponent } from './components/templete-forms/templete-forms.component';
 import { TODOComponent } from './components/todo/todo.component';
+import { CountriesExComponent } from './components/countries-ex/countries-ex.component';
+import { CountryDataComponent } from './services/country-data/country-data.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -18,6 +20,8 @@ const routes: Routes = [
   { path: 'reactive-form', component: ReactiveFormsComponent },
   { path: 'template-form', component: TempleteFormsComponent },
   { path: 'todo', component: TODOComponent },
+  { path: 'countries', component: CountriesExComponent },
+  { path: 'country-data', component: CountryDataComponent },
   { path: 'notfound', component: NofoundComponent },
   { path: 'deactivatex', component: CandeactivateComponent, canDeactivate: [authGuard] },
   { path: 'user', loadChildren: () => import('./user/user-routing.module').then((m) => m.UserRoutingModule) },

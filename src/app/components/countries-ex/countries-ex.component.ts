@@ -10,22 +10,29 @@ import { CountriesServiceService } from 'src/app/services/countries-service.serv
 export class CountriesExComponent implements OnInit {
 
   countriesData: any[];
+  originalData: any[];
   searchQuery: string = '';
+  isLoading: boolean = false;
 
   constructor(private api: CountriesServiceService, private router: Router) { }
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.getCountries();
   }
 
   getCountries = () => {
     this.api.getAllCountries().subscribe((response: any) => {
-      this.countriesData = response.slice(20, 32);
+      setTimeout(() => {
+        this.isLoading = false;
+        this.countriesData = response.slice(20, 32);
+        this.originalData = response.slice(20, 32);
+      }, 3000)
     })
   }
 
   onInputChange(event: any) {
-    console.log(event.data)
+    console.log(this.searchQuery)
     this.filterValue();
   }
 
@@ -35,11 +42,11 @@ export class CountriesExComponent implements OnInit {
 
   filterValue = () => {
     if (this.searchQuery.length > 0) {
-      this.countriesData = this.countriesData.filter((e) => {
+      this.countriesData = this.originalData.filter((e) => {
         return e.name.common.toLowerCase().includes(this.searchQuery.toLowerCase())
-      })
+      });
     } else {
-      this.getCountries();
+      this.countriesData = this.originalData;
     }
   }
 

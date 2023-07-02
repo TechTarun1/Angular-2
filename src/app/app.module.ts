@@ -18,6 +18,7 @@ import { CommonModule } from '@angular/common';
 import { TODOComponent } from './components/todo/todo.component';
 import { CountriesExComponent } from './components/countries-ex/countries-ex.component';
 import { CountryDataComponent } from './services/country-data/country-data.component';
+import { LoaderComponent } from './loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { CountryDataComponent } from './services/country-data/country-data.compo
     TempleteFormsComponent,
     TODOComponent,
     CountriesExComponent,
-    CountryDataComponent
+    CountryDataComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,

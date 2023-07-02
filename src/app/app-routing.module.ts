@@ -11,6 +11,7 @@ import { TempleteFormsComponent } from './components/templete-forms/templete-for
 import { TODOComponent } from './components/todo/todo.component';
 import { CountriesExComponent } from './components/countries-ex/countries-ex.component';
 import { CountryDataComponent } from './services/country-data/country-data.component';
+import { LoaderComponent } from './loader/loader.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },

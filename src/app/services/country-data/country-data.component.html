@@ -1,9 +1,12 @@
 <div>
     <div style="display: flex;align-items: center;justify-content: center;">
         <button class="back" (click)="goBack()"><--Goback </button>
-                <h1 style="display: flex;align-items: center;justify-content: center;">
-                    <u>{{queryParamName.subregion}}region
-                        data</u></h1>
+                <div style="display: flex;flex-direction: column;">
+                    <h1 style="display: flex;align-items: center;justify-content: center;">
+                        <u>{{queryParamName.subregion}} region data</u>
+                    </h1>
+                    <h1><u>Specific region data</u></h1>
+                </div>
     </div>
     <div>
         <app-loader [isLoading]="isLoading"></app-loader>
